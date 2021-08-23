@@ -24,3 +24,14 @@ body{
   font-size: 14px;
 }
 
+.event-info{
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  width: 300px;
+  min-height:200px;
+  padding: 20px;
+  background-color: rgba(0,0,0,0.6);
+  font-size: 14px;
+  color: white;
+}

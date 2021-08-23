@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import Supercluster from 'supercluster';
 import GoogleMapReact from 'google-map-react';
 import Plot from './Plot';
+import EventInfo from './EventInfo';
 
 
 
@@ -12,6 +13,8 @@ function Map({ center, eventsData }) {
     const[zoom, setZoom] = useState(1);
     const mapRef = useRef();
     const [bounds, setBounds] = useState(null);
+
+    const[infoEvent, setInfo] = useState(null);
 
     //events Ids
     const eventIds = {
@@ -31,6 +34,7 @@ function Map({ center, eventsData }) {
                 lat={ e.geometries[0].coordinates[1]} 
                 lng={ e.geometries[0].coordinates[0]}
                 id= {e.id}
+                onClick={()=> setInfo({ title: e.title, id: e.id})}
                 />
         }
         
@@ -48,6 +52,7 @@ function Map({ center, eventsData }) {
                     zoom = { zoom }>
                 { plotEvents }
             </GoogleMapReact>
+            {infoEvent && <EventInfo info={infoEvent} />}
         </div>
     );
 }
