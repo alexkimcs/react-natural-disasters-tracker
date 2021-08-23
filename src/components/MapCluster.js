@@ -52,7 +52,7 @@ function Map({ center, eventsData }) {
     
 
 
-    console.log(eventsData);
+    // console.log(eventsData);
     const plotEvents = eventsData.map( e => {
         if(e.categories[0].id === 8){
             return <Plot 
