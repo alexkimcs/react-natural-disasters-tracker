@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { ContextEvents } from './context/Context';
+import { ContextEvents } from './context/userContext';
 
 
 ReactDOM.render(

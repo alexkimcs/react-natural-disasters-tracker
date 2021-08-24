@@ -2,9 +2,10 @@ import React, {useState, useRef} from 'react';
 
 function Filter(props) {
     const[select, setSelect] = useState('ALL');
+    
     const filterEvents = useRef();
     return (
-        <div className="selector">
+        <section className="selector-container">
             <p>
                 Event Category:
             </p>
@@ -14,7 +15,7 @@ function Filter(props) {
                 <option value="Volcanoes">Volcanoes</option>
                 <option value="Severe Storms">Severe Storms</option>
             </select>
-        </div>
+        </section>
     );
 }
 

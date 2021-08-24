@@ -35,3 +35,23 @@ body{
   font-size: 14px;
   color: white;
 }
+.selector-container{
+  width: 100%;
+  max-width: 500px;
+  margin: 10px 0 20px 0;
+  display: inline-block;
+  background-color: black;
+}
+.events-marker {
+  color: #fff;
+  background: #c99046;
+  border-radius: 50%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.event-marker {
+  border: none;
+  background: none
+}

@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import Supercluster from 'supercluster';
 import GoogleMapReact from 'google-map-react';
 import Plot from './Plot';
+import EventInfo from './EventInfo';
 
 
 
@@ -14,7 +15,7 @@ function Map({ center, eventsData }) {
     const [bounds, setBounds] = useState(null);
 
     //Event info
-    const[info, setInfo] = useState(null);
+    const[infoEvent, setInfo] = useState(null);
 
     //events Ids
     const eventIds = {
@@ -95,7 +96,7 @@ function Map({ center, eventsData }) {
                             clusters: isCluster, 
                             point_count: pointCount
                         }=clusters.properties;
-                        const cId = clusters.properties.eventCategory;
+                        const clusterIcon = clusters.properties.eventCategory;
                         if(isCluster){
                             return(
                                 <div className="cluster-marker"
@@ -110,16 +111,16 @@ function Map({ center, eventsData }) {
                                         mapRef.current.panTo({ lat: latitude, lng: longitude});
                                     }}
                                 >
-                                    {pointCount}
+                          
                                 </div>
                             )
                         }
-                        if(eventIdx.indexOf(cId) !== -1 && clusters.geometry.coordinates.length ===2){
+                        if(eventIdx.indexOf(clusterIcon) !== -1 && clusters.geometry.coordinates.length ===2){
                             return(
                                 <Plot 
                                     lat={latitude}
                                     lng={longitude}
-                                    id={cId}
+                                    id={clusterIcon}
                                     key={clusters.properties.eventId}
                                 />
                             )

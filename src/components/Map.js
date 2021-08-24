@@ -24,17 +24,20 @@ function Map({ center, eventsData }) {
         15: "Sea and Lake Ice"
     }
 
-    
 
 
     console.log(eventsData);
+
     const plotEvents = eventsData.map( e => {
-        if(e.categories[0].id === 8){
+        if(e.categories[0].id){
             return <Plot 
                 lat={ e.geometries[0].coordinates[1]} 
                 lng={ e.geometries[0].coordinates[0]}
-                id= {e.id}
-                onClick={()=> setInfo({ title: e.title, id: e.id})}
+                id= {e.categories[0].id}
+                onClick={()=> setInfo({ title: e.title,
+                    id: e.id, 
+                    date: e.geometries[0].date, 
+                    source: e.sources[0].url})}
                 />
         }
         
@@ -48,8 +51,9 @@ function Map({ center, eventsData }) {
             <GoogleMapReact
                 bootstrapURLKeys={{
                     key: process.env.REACT_APP_GOOGLE_API_KEY  }}
-                    center = { center}
-                    zoom = { zoom }>
+                    center = { center }
+                    zoom = { zoom }
+                    onClick={() => {setInfo(null)}}>
                 { plotEvents }
             </GoogleMapReact>
             {infoEvent && <EventInfo info={infoEvent} />}
