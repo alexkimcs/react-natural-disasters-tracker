@@ -23,7 +23,7 @@ function App() {
     }
     fetchData();
     
-  })
+  },[])
 // {/* <MapC eventsData={eventsData} /> */}
 
   return (

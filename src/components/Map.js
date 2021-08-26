@@ -14,6 +14,8 @@ function Map({ center, eventsData }) {
     const mapRef = useRef();
     const [bounds, setBounds] = useState(null);
 
+
+    //redner info box
     const[infoEvent, setInfo] = useState(null);
 
     //events Ids

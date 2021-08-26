@@ -9,7 +9,7 @@ const override = css`
 `;
 
 const Load = (props) => {
-    let [loading, setLoading] = useState(true);
+    
     let [color, setColor] = useState("#36D7B7");
     return [
         <div className="loading">
